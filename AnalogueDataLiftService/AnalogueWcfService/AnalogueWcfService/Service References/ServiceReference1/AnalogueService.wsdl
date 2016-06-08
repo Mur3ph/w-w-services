@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AnalogueService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:62060/AnalogueService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAnalogueService_getJsonFromWindowService_InputMessage">
+    <wsdl:part name="parameters" element="tns:getJsonFromWindowService" />
+  </wsdl:message>
+  <wsdl:message name="IAnalogueService_getJsonFromWindowService_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getJsonFromWindowServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalogueService_insertIntoDatabase_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertIntoDatabase" />
+  </wsdl:message>
+  <wsdl:message name="IAnalogueService_insertIntoDatabase_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertIntoDatabaseResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAnalogueService">
+    <wsdl:operation name="getJsonFromWindowService">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAnalogueService/getJsonFromWindowService" message="tns:IAnalogueService_getJsonFromWindowService_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAnalogueService/getJsonFromWindowServiceResponse" message="tns:IAnalogueService_getJsonFromWindowService_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertIntoDatabase">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAnalogueService/insertIntoDatabase" message="tns:IAnalogueService_insertIntoDatabase_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAnalogueService/insertIntoDatabaseResponse" message="tns:IAnalogueService_insertIntoDatabase_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAnalogueService" type="tns:IAnalogueService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getJsonFromWindowService">
+      <soap:operation soapAction="http://tempuri.org/IAnalogueService/getJsonFromWindowService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertIntoDatabase">
+      <soap:operation soapAction="http://tempuri.org/IAnalogueService/insertIntoDatabase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AnalogueService">
+    <wsdl:port name="BasicHttpBinding_IAnalogueService" binding="tns:BasicHttpBinding_IAnalogueService">
+      <soap:address location="http://localhost:62060/AnalogueService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,635 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ServiceDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AnalogReadings">
+          <Key>
+            <PropertyRef Name="UnitRequestID" />
+          </Key>
+          <Property Name="UnitRequestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyID" Type="int" />
+          <Property Name="GroupID" Type="int" />
+          <Property Name="GroupName" Type="nvarchar" MaxLength="100" />
+          <Property Name="CustTypeID" Type="nvarchar" MaxLength="10" />
+          <Property Name="CustTypeName" Type="nvarchar" MaxLength="100" />
+          <Property Name="DeviceNo" Type="smallint" />
+          <Property Name="DeviceID" Type="int" />
+          <Property Name="Serial" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateReceived" Type="datetime" />
+          <Property Name="AuxAnalogue" Type="int" />
+          <Property Name="DeviceLevel" Type="int" />
+          <Property Name="UsableLevel" Type="int" />
+          <Property Name="MeasuredLevel" Type="int" />
+          <Property Name="RecordType" Type="int" />
+          <Property Name="ErrorCondition" Type="int" />
+          <Property Name="ErrorConditionLink" Type="int" />
+          <Property Name="ErrorText" Type="nvarchar" MaxLength="100" />
+          <Property Name="AvgUsage" Type="float" />
+          <Property Name="DaysToEmpty" Type="float" />
+          <Property Name="AccountNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="30" />
+          <Property Name="State" Type="nvarchar" MaxLength="30" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="30" />
+          <Property Name="Country" Type="nvarchar" MaxLength="20" />
+          <Property Name="HPhone" Type="nvarchar" MaxLength="30" />
+          <Property Name="WPhone" Type="nvarchar" MaxLength="30" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="30" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeviceSize" Type="int" />
+          <Property Name="DeviceSizeTotal" Type="int" />
+          <Property Name="DeviceCount" Type="int" />
+          <Property Name="Identifier" Type="nvarchar" MaxLength="200" />
+          <Property Name="SubstanceID" Type="int" />
+          <Property Name="SubstanceName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TBLDevices">
+          <Key>
+            <PropertyRef Name="SerialNumber" />
+            <PropertyRef Name="DeviceNo" />
+          </Key>
+          <Property Name="SerialNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DeviceNo" Type="int" Nullable="false" />
+          <Property Name="CompanyID" Type="int" />
+          <Property Name="DeviceID" Type="int" />
+          <Property Name="DateRegistered" Type="datetime" />
+          <Property Name="DateUpdated" Type="datetime" />
+          <Property Name="DeviceName" Type="nvarchar" MaxLength="100" />
+          <Property Name="DeviceRFAddress" Type="char" MaxLength="10" />
+          <Property Name="DeviceSize" Type="int" />
+          <Property Name="DeviceSizeTotal" Type="int" />
+          <Property Name="DeviceSubType" Type="int" />
+          <Property Name="HighLimit" Type="int" />
+          <Property Name="LowLimit" Type="int" />
+          <Property Name="DeviceHighThreshold" Type="int" />
+          <Property Name="OverrideHighThreshhold" Type="tinyint" />
+          <Property Name="DeviceLowThreshold" Type="int" />
+          <Property Name="OverrideLowThreshold" Type="tinyint" />
+          <Property Name="Differential" Type="int" />
+          <Property Name="DiffPolarity" Type="smallint" />
+          <Property Name="OverrideDifferential" Type="tinyint" />
+          <Property Name="DeviceDrivenInt" Type="tinyint" />
+          <Property Name="NoDataInt" Type="tinyint" />
+          <Property Name="ThresholdForCollection" Type="tinyint" />
+          <Property Name="ErrorRepeatDelay" Type="int" />
+          <Property Name="OverrideErrorRepeatDelay" Type="tinyint" />
+          <Property Name="DisableInterruptForThisDevice" Type="tinyint" />
+          <Property Name="NoDataInterruptSamples" Type="smallint" />
+          <Property Name="Height" Type="float" />
+          <Property Name="Length" Type="float" />
+          <Property Name="Width" Type="float" />
+          <Property Name="BottomOutlet" Type="float" />
+          <Property Name="CapacityOfAdjustment" Type="float" />
+          <Property Name="DeviceCount" Type="int" />
+          <Property Name="SensorOffset" Type="float" />
+          <Property Name="UpdateDevice" Type="tinyint" />
+          <Property Name="RegisterDevice" Type="tinyint" />
+          <Property Name="MarkedForDeletion" Type="tinyint" />
+          <Property Name="DeviceLinkTableID" Type="int" />
+          <Property Name="Identifier" Type="nvarchar" MaxLength="200" />
+          <Property Name="AlertTypeH" Type="int" />
+          <Property Name="AlertTypeL" Type="int" />
+          <Property Name="AlertTypeD" Type="int" />
+          <Property Name="AlertTypeI" Type="int" />
+          <Property Name="AlertTypeN" Type="int" />
+          <Property Name="AlertDesc" Type="nvarchar" MaxLength="200" />
+          <Property Name="UnitMeasurement" Type="int" />
+          <Property Name="DTEStatus" Type="smallint" />
+          <Property Name="DeviceApplication" Type="smallint" />
+          <Property Name="OverrideDDEM" Type="tinyint" />
+          <Property Name="DwellingFloors" Type="int" />
+          <Property Name="DwellingUnits" Type="int" />
+          <Property Name="DwellingRooms" Type="int" />
+          <Property Name="DwellingArea" Type="float" />
+          <Property Name="SubstanceID" Type="int" />
+          <Property Name="EquipmentID" Type="int" />
+          <Property Name="Waste" Type="bit" />
+          <Property Name="latitude" Type="decimal" Precision="9" Scale="6" />
+          <Property Name="longitude" Type="decimal" Precision="9" Scale="6" />
+        </EntityType>
+        <EntityType Name="TBLReadings">
+          <Key>
+            <PropertyRef Name="UnitRequestID" />
+          </Key>
+          <Property Name="UnitRequestID" Type="int" Nullable="false" />
+          <Property Name="CompanyID" Type="int" />
+          <Property Name="GroupID" Type="int" />
+          <Property Name="GroupName" Type="nvarchar" MaxLength="100" />
+          <Property Name="CustTypeID" Type="nvarchar" MaxLength="10" />
+          <Property Name="CustTypeName" Type="nvarchar" MaxLength="100" />
+          <Property Name="DeviceNo" Type="smallint" />
+          <Property Name="DeviceID" Type="int" />
+          <Property Name="DeviceRFAddress" Type="nchar" MaxLength="10" />
+          <Property Name="Serial" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateReceived" Type="datetime" />
+          <Property Name="NextDialUpDate" Type="datetime" />
+          <Property Name="ReceiveError" Type="tinyint" />
+          <Property Name="bool0" Type="tinyint" />
+          <Property Name="bool1" Type="tinyint" />
+          <Property Name="bool2" Type="tinyint" />
+          <Property Name="bool3" Type="tinyint" />
+          <Property Name="EMD" Type="tinyint" />
+          <Property Name="NDEM" Type="tinyint" />
+          <Property Name="ThreshBrokenInt" Type="tinyint" />
+          <Property Name="Battery" Type="int" />
+          <Property Name="teach" Type="tinyint" />
+          <Property Name="AuxAnalogue" Type="int" />
+          <Property Name="DeviceLevel" Type="int" />
+          <Property Name="UsableLevel" Type="int" />
+          <Property Name="UnusableLevel" Type="int" />
+          <Property Name="MeasuredLevel" Type="int" />
+          <Property Name="dataflag" Type="tinyint" />
+          <Property Name="TimeStamp" Type="datetime" />
+          <Property Name="DateCollected" Type="datetime" />
+          <Property Name="CollectedByOilManagerSW" Type="tinyint" />
+          <Property Name="RecordType" Type="int" />
+          <Property Name="ErrorCondition" Type="int" />
+          <Property Name="ErrorConditionLink" Type="int" />
+          <Property Name="ErrorText" Type="nvarchar" MaxLength="100" />
+          <Property Name="ReadingStatus" Type="smallint" />
+          <Property Name="ReadingReaction" Type="nvarchar" MaxLength="30" />
+          <Property Name="AlertReaction" Type="nvarchar" MaxLength="50" />
+          <Property Name="AlertStatus" Type="int" />
+          <Property Name="AvgUsage" Type="float" />
+          <Property Name="NumDaysInAvg" Type="float" />
+          <Property Name="NumMeasInAvg" Type="int" />
+          <Property Name="DaysToEmpty" Type="float" />
+          <Property Name="PriorLevel" Type="int" />
+          <Property Name="PriorMeasuredLevel" Type="int" />
+          <Property Name="NotifiedPerson" Type="nvarchar" MaxLength="650" />
+          <Property Name="AccountNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="30" />
+          <Property Name="State" Type="nvarchar" MaxLength="30" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="30" />
+          <Property Name="Country" Type="nvarchar" MaxLength="20" />
+          <Property Name="HPhone" Type="nvarchar" MaxLength="30" />
+          <Property Name="WPhone" Type="nvarchar" MaxLength="30" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="30" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeviceSize" Type="int" />
+          <Property Name="DeviceSizeTotal" Type="int" />
+          <Property Name="DeviceCount" Type="int" />
+          <Property Name="DeviceSubType" Type="int" />
+          <Property Name="HighLimit" Type="int" />
+          <Property Name="LowLimit" Type="int" />
+          <Property Name="Differential" Type="int" />
+          <Property Name="Identifier" Type="nvarchar" MaxLength="200" />
+          <Property Name="LocationID" Type="int" />
+          <Property Name="Loc_Address1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Loc_City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Loc_State" Type="nvarchar" MaxLength="30" />
+          <Property Name="ModemType" Type="int" />
+          <Property Name="DwellingFloors" Type="int" />
+          <Property Name="DwellingUnits" Type="int" />
+          <Property Name="DwellingRooms" Type="int" />
+          <Property Name="DwellingArea" Type="float" />
+          <Property Name="SubstanceID" Type="int" />
+          <Property Name="SubstanceName" Type="nvarchar" MaxLength="100" />
+          <Property Name="EquipmentID" Type="int" />
+          <Property Name="EquipmentName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ValueBeforeDiff" Type="int" />
+        </EntityType>
+        <EntityContainer Name="ServiceDBModelStoreContainer">
+          <EntitySet Name="AnalogReadings" EntityType="Self.AnalogReadings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLDevices" EntityType="Self.TBLDevices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLReadings" EntityType="Self.TBLReadings" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ServiceDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TBLDevice">
+          <Key>
+            <PropertyRef Name="SerialNumber" />
+            <PropertyRef Name="DeviceNo" />
+          </Key>
+          <Property Name="SerialNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DeviceNo" Type="Int32" Nullable="false" />
+          <Property Name="CompanyID" Type="Int32" />
+          <Property Name="DeviceID" Type="Int32" />
+          <Property Name="DateRegistered" Type="DateTime" Precision="3" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+          <Property Name="DeviceName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DeviceRFAddress" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="DeviceSize" Type="Int32" />
+          <Property Name="DeviceSizeTotal" Type="Int32" />
+          <Property Name="DeviceSubType" Type="Int32" />
+          <Property Name="HighLimit" Type="Int32" />
+          <Property Name="LowLimit" Type="Int32" />
+          <Property Name="DeviceHighThreshold" Type="Int32" />
+          <Property Name="OverrideHighThreshhold" Type="Byte" />
+          <Property Name="DeviceLowThreshold" Type="Int32" />
+          <Property Name="OverrideLowThreshold" Type="Byte" />
+          <Property Name="Differential" Type="Int32" />
+          <Property Name="DiffPolarity" Type="Int16" />
+          <Property Name="OverrideDifferential" Type="Byte" />
+          <Property Name="DeviceDrivenInt" Type="Byte" />
+          <Property Name="NoDataInt" Type="Byte" />
+          <Property Name="ThresholdForCollection" Type="Byte" />
+          <Property Name="ErrorRepeatDelay" Type="Int32" />
+          <Property Name="OverrideErrorRepeatDelay" Type="Byte" />
+          <Property Name="DisableInterruptForThisDevice" Type="Byte" />
+          <Property Name="NoDataInterruptSamples" Type="Int16" />
+          <Property Name="Height" Type="Double" />
+          <Property Name="Length" Type="Double" />
+          <Property Name="Width" Type="Double" />
+          <Property Name="BottomOutlet" Type="Double" />
+          <Property Name="CapacityOfAdjustment" Type="Double" />
+          <Property Name="DeviceCount" Type="Int32" />
+          <Property Name="SensorOffset" Type="Double" />
+          <Property Name="UpdateDevice" Type="Byte" />
+          <Property Name="RegisterDevice" Type="Byte" />
+          <Property Name="MarkedForDeletion" Type="Byte" />
+          <Property Name="DeviceLinkTableID" Type="Int32" />
+          <Property Name="Identifier" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="AlertTypeH" Type="Int32" />
+          <Property Name="AlertTypeL" Type="Int32" />
+          <Property Name="AlertTypeD" Type="Int32" />
+          <Property Name="AlertTypeI" Type="Int32" />
+          <Property Name="AlertTypeN" Type="Int32" />
+          <Property Name="AlertDesc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="UnitMeasurement" Type="Int32" />
+          <Property Name="DTEStatus" Type="Int16" />
+          <Property Name="DeviceApplication" Type="Int16" />
+          <Property Name="OverrideDDEM" Type="Byte" />
+          <Property Name="DwellingFloors" Type="Int32" />
+          <Property Name="DwellingUnits" Type="Int32" />
+          <Property Name="DwellingRooms" Type="Int32" />
+          <Property Name="DwellingArea" Type="Double" />
+          <Property Name="SubstanceID" Type="Int32" />
+          <Property Name="EquipmentID" Type="Int32" />
+          <Property Name="Waste" Type="Boolean" />
+          <Property Name="latitude" Type="Decimal" Precision="9" Scale="6" />
+          <Property Name="longitude" Type="Decimal" Precision="9" Scale="6" />
+        </EntityType>
+        <EntityType Name="TBLReading">
+          <Key>
+            <PropertyRef Name="UnitRequestID" />
+          </Key>
+          <Property Name="UnitRequestID" Type="Int32" Nullable="false" />
+          <Property Name="CompanyID" Type="Int32" />
+          <Property Name="GroupID" Type="Int32" />
+          <Property Name="GroupName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CustTypeID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CustTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DeviceNo" Type="Int16" />
+          <Property Name="DeviceID" Type="Int32" />
+          <Property Name="DeviceRFAddress" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Serial" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateReceived" Type="DateTime" Precision="3" />
+          <Property Name="NextDialUpDate" Type="DateTime" Precision="3" />
+          <Property Name="ReceiveError" Type="Byte" />
+          <Property Name="bool0" Type="Byte" />
+          <Property Name="bool1" Type="Byte" />
+          <Property Name="bool2" Type="Byte" />
+          <Property Name="bool3" Type="Byte" />
+          <Property Name="EMD" Type="Byte" />
+          <Property Name="NDEM" Type="Byte" />
+          <Property Name="ThreshBrokenInt" Type="Byte" />
+          <Property Name="Battery" Type="Int32" />
+          <Property Name="teach" Type="Byte" />
+          <Property Name="AuxAnalogue" Type="Int32" />
+          <Property Name="DeviceLevel" Type="Int32" />
+          <Property Name="UsableLevel" Type="Int32" />
+          <Property Name="UnusableLevel" Type="Int32" />
+          <Property Name="MeasuredLevel" Type="Int32" />
+          <Property Name="dataflag" Type="Byte" />
+          <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+          <Property Name="DateCollected" Type="DateTime" Precision="3" />
+          <Property Name="CollectedByOilManagerSW" Type="Byte" />
+          <Property Name="RecordType" Type="Int32" />
+          <Property Name="ErrorCondition" Type="Int32" />
+          <Property Name="ErrorConditionLink" Type="Int32" />
+          <Property Name="ErrorText" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ReadingStatus" Type="Int16" />
+          <Property Name="ReadingReaction" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="AlertReaction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AlertStatus" Type="Int32" />
+          <Property Name="AvgUsage" Type="Double" />
+          <Property Name="NumDaysInAvg" Type="Double" />
+          <Property Name="NumMeasInAvg" Type="Int32" />
+          <Property Name="DaysToEmpty" Type="Double" />
+          <Property Name="PriorLevel" Type="Int32" />
+          <Property Name="PriorMeasuredLevel" Type="Int32" />
+          <Property Name="NotifiedPerson" Type="String" MaxLength="650" FixedLength="false" Unicode="true" />
+          <Property Name="AccountNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="HPhone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="WPhone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeviceSize" Type="Int32" />
+          <Property Name="DeviceSizeTotal" Type="Int32" />
+          <Property Name="DeviceCount" Type="Int32" />
+          <Property Name="DeviceSubType" Type="Int32" />
+          <Property Name="HighLimit" Type="Int32" />
+          <Property Name="LowLimit" Type="Int32" />
+          <Property Name="Differential" Type="Int32" />
+          <Property Name="Identifier" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="LocationID" Type="Int32" />
+          <Property Name="Loc_Address1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Loc_City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Loc_State" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ModemType" Type="Int32" />
+          <Property Name="DwellingFloors" Type="Int32" />
+          <Property Name="DwellingUnits" Type="Int32" />
+          <Property Name="DwellingRooms" Type="Int32" />
+          <Property Name="DwellingArea" Type="Double" />
+          <Property Name="SubstanceID" Type="Int32" />
+          <Property Name="SubstanceName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EquipmentID" Type="Int32" />
+          <Property Name="EquipmentName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ValueBeforeDiff" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="ServiceDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TBLDevices" EntityType="Self.TBLDevice" />
+          <EntitySet Name="TBLReadings" EntityType="Self.TBLReading" />
+          <EntitySet Name="AnalogReadings" EntityType="ServiceDBModel.AnalogReading" />
+        </EntityContainer>
+        <EntityType Name="AnalogReading">
+          <Key>
+            <PropertyRef Name="UnitRequestID" />
+          </Key>
+          <Property Name="UnitRequestID" Type="Int32" Nullable="false" />
+          <Property Name="CompanyID" Type="Int32" />
+          <Property Name="GroupID" Type="Int32" />
+          <Property Name="GroupName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CustTypeID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CustTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DeviceNo" Type="Int16" />
+          <Property Name="DeviceID" Type="Int32" />
+          <Property Name="Serial" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateReceived" Type="DateTime" Precision="3" />
+          <Property Name="AuxAnalogue" Type="Int32" />
+          <Property Name="DeviceLevel" Type="Int32" />
+          <Property Name="UsableLevel" Type="Int32" />
+          <Property Name="MeasuredLevel" Type="Int32" />
+          <Property Name="RecordType" Type="Int32" />
+          <Property Name="ErrorCondition" Type="Int32" />
+          <Property Name="ErrorConditionLink" Type="Int32" />
+          <Property Name="ErrorText" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AvgUsage" Type="Double" />
+          <Property Name="DaysToEmpty" Type="Double" />
+          <Property Name="AccountNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="HPhone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="WPhone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeviceSize" Type="Int32" />
+          <Property Name="DeviceSizeTotal" Type="Int32" />
+          <Property Name="DeviceCount" Type="Int32" />
+          <Property Name="Identifier" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SubstanceID" Type="Int32" />
+          <Property Name="SubstanceName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ServiceDBModelStoreContainer" CdmEntityContainer="ServiceDBEntities">
+          <EntitySetMapping Name="TBLDevices">
+            <EntityTypeMapping TypeName="ServiceDBModel.TBLDevice">
+              <MappingFragment StoreEntitySet="TBLDevices">
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="DeviceNo" ColumnName="DeviceNo" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+                <ScalarProperty Name="DateRegistered" ColumnName="DateRegistered" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="DeviceName" ColumnName="DeviceName" />
+                <ScalarProperty Name="DeviceRFAddress" ColumnName="DeviceRFAddress" />
+                <ScalarProperty Name="DeviceSize" ColumnName="DeviceSize" />
+                <ScalarProperty Name="DeviceSizeTotal" ColumnName="DeviceSizeTotal" />
+                <ScalarProperty Name="DeviceSubType" ColumnName="DeviceSubType" />
+                <ScalarProperty Name="HighLimit" ColumnName="HighLimit" />
+                <ScalarProperty Name="LowLimit" ColumnName="LowLimit" />
+                <ScalarProperty Name="DeviceHighThreshold" ColumnName="DeviceHighThreshold" />
+                <ScalarProperty Name="OverrideHighThreshhold" ColumnName="OverrideHighThreshhold" />
+                <ScalarProperty Name="DeviceLowThreshold" ColumnName="DeviceLowThreshold" />
+                <ScalarProperty Name="OverrideLowThreshold" ColumnName="OverrideLowThreshold" />
+                <ScalarProperty Name="Differential" ColumnName="Differential" />
+                <ScalarProperty Name="DiffPolarity" ColumnName="DiffPolarity" />
+                <ScalarProperty Name="OverrideDifferential" ColumnName="OverrideDifferential" />
+                <ScalarProperty Name="DeviceDrivenInt" ColumnName="DeviceDrivenInt" />
+                <ScalarProperty Name="NoDataInt" ColumnName="NoDataInt" />
+                <ScalarProperty Name="ThresholdForCollection" ColumnName="ThresholdForCollection" />
+                <ScalarProperty Name="ErrorRepeatDelay" ColumnName="ErrorRepeatDelay" />
+                <ScalarProperty Name="OverrideErrorRepeatDelay" ColumnName="OverrideErrorRepeatDelay" />
+                <ScalarProperty Name="DisableInterruptForThisDevice" ColumnName="DisableInterruptForThisDevice" />
+                <ScalarProperty Name="NoDataInterruptSamples" ColumnName="NoDataInterruptSamples" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="BottomOutlet" ColumnName="BottomOutlet" />
+                <ScalarProperty Name="CapacityOfAdjustment" ColumnName="CapacityOfAdjustment" />
+                <ScalarProperty Name="DeviceCount" ColumnName="DeviceCount" />
+                <ScalarProperty Name="SensorOffset" ColumnName="SensorOffset" />
+                <ScalarProperty Name="UpdateDevice" ColumnName="UpdateDevice" />
+                <ScalarProperty Name="RegisterDevice" ColumnName="RegisterDevice" />
+                <ScalarProperty Name="MarkedForDeletion" ColumnName="MarkedForDeletion" />
+                <ScalarProperty Name="DeviceLinkTableID" ColumnName="DeviceLinkTableID" />
+                <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+                <ScalarProperty Name="AlertTypeH" ColumnName="AlertTypeH" />
+                <ScalarProperty Name="AlertTypeL" ColumnName="AlertTypeL" />
+                <ScalarProperty Name="AlertTypeD" ColumnName="AlertTypeD" />
+                <ScalarProperty Name="AlertTypeI" ColumnName="AlertTypeI" />
+                <ScalarProperty Name="AlertTypeN" ColumnName="AlertTypeN" />
+                <ScalarProperty Name="AlertDesc" ColumnName="AlertDesc" />
+                <ScalarProperty Name="UnitMeasurement" ColumnName="UnitMeasurement" />
+                <ScalarProperty Name="DTEStatus" ColumnName="DTEStatus" />
+                <ScalarProperty Name="DeviceApplication" ColumnName="DeviceApplication" />
+                <ScalarProperty Name="OverrideDDEM" ColumnName="OverrideDDEM" />
+                <ScalarProperty Name="DwellingFloors" ColumnName="DwellingFloors" />
+                <ScalarProperty Name="DwellingUnits" ColumnName="DwellingUnits" />
+                <ScalarProperty Name="DwellingRooms" ColumnName="DwellingRooms" />
+                <ScalarProperty Name="DwellingArea" ColumnName="DwellingArea" />
+                <ScalarProperty Name="SubstanceID" ColumnName="SubstanceID" />
+                <ScalarProperty Name="EquipmentID" ColumnName="EquipmentID" />
+                <ScalarProperty Name="Waste" ColumnName="Waste" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLReadings">
+            <EntityTypeMapping TypeName="ServiceDBModel.TBLReading">
+              <MappingFragment StoreEntitySet="TBLReadings">
+                <ScalarProperty Name="UnitRequestID" ColumnName="UnitRequestID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="CustTypeID" ColumnName="CustTypeID" />
+                <ScalarProperty Name="CustTypeName" ColumnName="CustTypeName" />
+                <ScalarProperty Name="DeviceNo" ColumnName="DeviceNo" />
+                <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+                <ScalarProperty Name="DeviceRFAddress" ColumnName="DeviceRFAddress" />
+                <ScalarProperty Name="Serial" ColumnName="Serial" />
+                <ScalarProperty Name="DateReceived" ColumnName="DateReceived" />
+                <ScalarProperty Name="NextDialUpDate" ColumnName="NextDialUpDate" />
+                <ScalarProperty Name="ReceiveError" ColumnName="ReceiveError" />
+                <ScalarProperty Name="bool0" ColumnName="bool0" />
+                <ScalarProperty Name="bool1" ColumnName="bool1" />
+                <ScalarProperty Name="bool2" ColumnName="bool2" />
+                <ScalarProperty Name="bool3" ColumnName="bool3" />
+                <ScalarProperty Name="EMD" ColumnName="EMD" />
+                <ScalarProperty Name="NDEM" ColumnName="NDEM" />
+                <ScalarProperty Name="ThreshBrokenInt" ColumnName="ThreshBrokenInt" />
+                <ScalarProperty Name="Battery" ColumnName="Battery" />
+                <ScalarProperty Name="teach" ColumnName="teach" />
+                <ScalarProperty Name="AuxAnalogue" ColumnName="AuxAnalogue" />
+                <ScalarProperty Name="DeviceLevel" ColumnName="DeviceLevel" />
+                <ScalarProperty Name="UsableLevel" ColumnName="UsableLevel" />
+                <ScalarProperty Name="UnusableLevel" ColumnName="UnusableLevel" />
+                <ScalarProperty Name="MeasuredLevel" ColumnName="MeasuredLevel" />
+                <ScalarProperty Name="dataflag" ColumnName="dataflag" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="DateCollected" ColumnName="DateCollected" />
+                <ScalarProperty Name="CollectedByOilManagerSW" ColumnName="CollectedByOilManagerSW" />
+                <ScalarProperty Name="RecordType" ColumnName="RecordType" />
+                <ScalarProperty Name="ErrorCondition" ColumnName="ErrorCondition" />
+                <ScalarProperty Name="ErrorConditionLink" ColumnName="ErrorConditionLink" />
+                <ScalarProperty Name="ErrorText" ColumnName="ErrorText" />
+                <ScalarProperty Name="ReadingStatus" ColumnName="ReadingStatus" />
+                <ScalarProperty Name="ReadingReaction" ColumnName="ReadingReaction" />
+                <ScalarProperty Name="AlertReaction" ColumnName="AlertReaction" />
+                <ScalarProperty Name="AlertStatus" ColumnName="AlertStatus" />
+                <ScalarProperty Name="AvgUsage" ColumnName="AvgUsage" />
+                <ScalarProperty Name="NumDaysInAvg" ColumnName="NumDaysInAvg" />
+                <ScalarProperty Name="NumMeasInAvg" ColumnName="NumMeasInAvg" />
+                <ScalarProperty Name="DaysToEmpty" ColumnName="DaysToEmpty" />
+                <ScalarProperty Name="PriorLevel" ColumnName="PriorLevel" />
+                <ScalarProperty Name="PriorMeasuredLevel" ColumnName="PriorMeasuredLevel" />
+                <ScalarProperty Name="NotifiedPerson" ColumnName="NotifiedPerson" />
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="HPhone" ColumnName="HPhone" />
+                <ScalarProperty Name="WPhone" ColumnName="WPhone" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DeviceSize" ColumnName="DeviceSize" />
+                <ScalarProperty Name="DeviceSizeTotal" ColumnName="DeviceSizeTotal" />
+                <ScalarProperty Name="DeviceCount" ColumnName="DeviceCount" />
+                <ScalarProperty Name="DeviceSubType" ColumnName="DeviceSubType" />
+                <ScalarProperty Name="HighLimit" ColumnName="HighLimit" />
+                <ScalarProperty Name="LowLimit" ColumnName="LowLimit" />
+                <ScalarProperty Name="Differential" ColumnName="Differential" />
+                <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="Loc_Address1" ColumnName="Loc_Address1" />
+                <ScalarProperty Name="Loc_City" ColumnName="Loc_City" />
+                <ScalarProperty Name="Loc_State" ColumnName="Loc_State" />
+                <ScalarProperty Name="ModemType" ColumnName="ModemType" />
+                <ScalarProperty Name="DwellingFloors" ColumnName="DwellingFloors" />
+                <ScalarProperty Name="DwellingUnits" ColumnName="DwellingUnits" />
+                <ScalarProperty Name="DwellingRooms" ColumnName="DwellingRooms" />
+                <ScalarProperty Name="DwellingArea" ColumnName="DwellingArea" />
+                <ScalarProperty Name="SubstanceID" ColumnName="SubstanceID" />
+                <ScalarProperty Name="SubstanceName" ColumnName="SubstanceName" />
+                <ScalarProperty Name="EquipmentID" ColumnName="EquipmentID" />
+                <ScalarProperty Name="EquipmentName" ColumnName="EquipmentName" />
+                <ScalarProperty Name="ValueBeforeDiff" ColumnName="ValueBeforeDiff" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AnalogReadings">
+            <EntityTypeMapping TypeName="ServiceDBModel.AnalogReading">
+              <MappingFragment StoreEntitySet="AnalogReadings">
+                <ScalarProperty Name="SubstanceName" ColumnName="SubstanceName" />
+                <ScalarProperty Name="SubstanceID" ColumnName="SubstanceID" />
+                <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+                <ScalarProperty Name="DeviceCount" ColumnName="DeviceCount" />
+                <ScalarProperty Name="DeviceSizeTotal" ColumnName="DeviceSizeTotal" />
+                <ScalarProperty Name="DeviceSize" ColumnName="DeviceSize" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="WPhone" ColumnName="WPhone" />
+                <ScalarProperty Name="HPhone" ColumnName="HPhone" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="DaysToEmpty" ColumnName="DaysToEmpty" />
+                <ScalarProperty Name="AvgUsage" ColumnName="AvgUsage" />
+                <ScalarProperty Name="ErrorText" ColumnName="ErrorText" />
+                <ScalarProperty Name="ErrorConditionLink" ColumnName="ErrorConditionLink" />
+                <ScalarProperty Name="ErrorCondition" ColumnName="ErrorCondition" />
+                <ScalarProperty Name="RecordType" ColumnName="RecordType" />
+                <ScalarProperty Name="MeasuredLevel" ColumnName="MeasuredLevel" />
+                <ScalarProperty Name="UsableLevel" ColumnName="UsableLevel" />
+                <ScalarProperty Name="DeviceLevel" ColumnName="DeviceLevel" />
+                <ScalarProperty Name="AuxAnalogue" ColumnName="AuxAnalogue" />
+                <ScalarProperty Name="DateReceived" ColumnName="DateReceived" />
+                <ScalarProperty Name="Serial" ColumnName="Serial" />
+                <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+                <ScalarProperty Name="DeviceNo" ColumnName="DeviceNo" />
+                <ScalarProperty Name="CustTypeName" ColumnName="CustTypeName" />
+                <ScalarProperty Name="CustTypeID" ColumnName="CustTypeID" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="UnitRequestID" ColumnName="UnitRequestID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
